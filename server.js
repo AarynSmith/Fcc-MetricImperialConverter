@@ -12,9 +12,12 @@ const runner = require('./test-runner');
 
 let app = express();
 
+app.disable('etag');
+
 app.use('/public', express.static(process.cwd() + '/public'));
 
-app.use(cors({origin: '*'})); //For FCC testing purposes only
+// app.use(cors({origin: '*'})); //For FCC testing purposes only
+app.use(cors())
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
